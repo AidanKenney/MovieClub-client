@@ -28,7 +28,20 @@ const onIndexCollections = function () {
     .catch(collectionUi.onIndexCollectionsFailure)
 }
 
+const onDeleteCollection = function (event) {
+  event.preventDefault()
+  const form = event.target
+  // extract 'id' input from form field
+  const collectionId = getFormFields(form).id
+  console.log(collectionId)
+  // send AJAX request with id from form field
+  collectionApi.deleteCollection(collectionId)
+    .then(collectionUi.onDeleteCollectionSuccess)
+    .catch(collectionUi.onDeleteCollectionFailure)
+}
+
 module.exports = {
   onCreateCollection: onCreateCollection,
-  onIndexCollections: onIndexCollections
+  onIndexCollections: onIndexCollections,
+  onDeleteCollection: onDeleteCollection
 }

@@ -27,9 +27,19 @@ const onIndexCollectionsFailure = function (error) {
   console.log('Oh no... could not get collections', error)
 }
 
+const onDeleteCollectionSuccess = function (response) {
+  console.log('Collection deleted successfully', response)
+}
+
+const onDeleteCollectionFailure = function (error) {
+  console.log('Problem deleting collection. Error is', error)
+}
+
 module.exports = {
   onCreateCollectionSuccess: onCreateCollectionSuccess,
   onCreateCollectionFailure: onCreateCollectionFailure,
   onIndexCollectionsSuccess: onIndexCollectionsSuccess,
-  onIndexCollectionsFailure: onIndexCollectionsFailure
+  onIndexCollectionsFailure: onIndexCollectionsFailure,
+  onDeleteCollectionSuccess: onDeleteCollectionSuccess,
+  onDeleteCollectionFailure: onDeleteCollectionFailure
 }

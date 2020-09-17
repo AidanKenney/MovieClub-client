@@ -18,4 +18,5 @@ $(() => {
   $('#create-collection').on('submit', collectionEvents.onCreateCollection)
   $('#index-collections').on('submit', collectionEvents.onIndexCollections)
   $('#delete-collection').on('submit', collectionEvents.onDeleteCollection)
+  $('#update-collection').on('submit', collectionEvents.onUpdateCollection)
 })

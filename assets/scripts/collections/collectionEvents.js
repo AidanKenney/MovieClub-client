@@ -32,6 +32,7 @@ const onDeleteCollection = function (event) {
   event.preventDefault()
   const form = event.target
   // extract 'id' input from form field
+  // should problem change name id to collection[id]
   const collectionId = getFormFields(form).id
   console.log(collectionId)
   // send AJAX request with id from form field
@@ -40,8 +41,19 @@ const onDeleteCollection = function (event) {
     .catch(collectionUi.onDeleteCollectionFailure)
 }
 
+const onUpdateCollection = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const collectionData = getFormFields(form)
+
+  collectionApi.updateCollection(collectionData)
+    .then(collectionUi.onUpdateCollectionSuccess)
+    .catch(collectionUi.onUpdateCollectionFailure)
+}
+
 module.exports = {
   onCreateCollection: onCreateCollection,
   onIndexCollections: onIndexCollections,
-  onDeleteCollection: onDeleteCollection
+  onDeleteCollection: onDeleteCollection,
+  onUpdateCollection: onUpdateCollection
 }

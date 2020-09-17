@@ -28,8 +28,20 @@ const deleteCollection = function (id) {
   })
 }
 
+const updateCollection = function (data) {
+  return $.ajax({
+    // must access collection.id property of collectionData object -- rule from
+    // getFormFields requires extra set
+    url: config.apiUrl + '/collections/' + data.collection.id,
+    method: 'PATCH',
+    headers: { Authorization: 'Token token=' + store.user.token },
+    data: data
+  })
+}
+
 module.exports = {
   createCollection: createCollection,
   indexCollections: indexCollections,
-  deleteCollection: deleteCollection
+  deleteCollection: deleteCollection,
+  updateCollection: updateCollection
 }

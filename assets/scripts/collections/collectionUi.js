@@ -35,11 +35,21 @@ const onDeleteCollectionFailure = function (error) {
   console.log('Problem deleting collection. Error is', error)
 }
 
+const onUpdateCollectionSuccess = function (response) {
+  console.log('Successfully updated collection', response)
+}
+
+const onUpdateCollectionFailure = function (error) {
+  console.log('Problem updating collection', error)
+}
+
 module.exports = {
   onCreateCollectionSuccess: onCreateCollectionSuccess,
   onCreateCollectionFailure: onCreateCollectionFailure,
   onIndexCollectionsSuccess: onIndexCollectionsSuccess,
   onIndexCollectionsFailure: onIndexCollectionsFailure,
   onDeleteCollectionSuccess: onDeleteCollectionSuccess,
-  onDeleteCollectionFailure: onDeleteCollectionFailure
+  onDeleteCollectionFailure: onDeleteCollectionFailure,
+  onUpdateCollectionSuccess: onUpdateCollectionSuccess,
+  onUpdateCollectionFailure: onUpdateCollectionFailure
 }

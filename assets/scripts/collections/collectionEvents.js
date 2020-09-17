@@ -19,6 +19,16 @@ const onCreateCollection = function (event) {
     .catch(collectionUi.onCreateCollectionFailure)
 }
 
+const onIndexCollections = function () {
+  event.preventDefault()
+  collectionApi.indexCollections()
+  // handle successful API response
+    .then(collectionUi.onIndexCollectionsSuccess)
+  // handle failed API response
+    .catch(collectionUi.onIndexCollectionsFailure)
+}
+
 module.exports = {
-  onCreateCollection: onCreateCollection
+  onCreateCollection: onCreateCollection,
+  onIndexCollections: onIndexCollections
 }

@@ -17,7 +17,19 @@ const onCreateCollectionFailure = function (error) {
   console.log('Error! Error is', error)
 }
 
+const onIndexCollectionsSuccess = function (response) {
+  storeCollections.collections = response.collections
+  console.log('Index request success! Here are your collections', response)
+  $('#show-collections').html('Here are your collections ' + JSON.stringify(storeCollections.collections))
+}
+
+const onIndexCollectionsFailure = function (error) {
+  console.log('Oh no... could not get collections', error)
+}
+
 module.exports = {
   onCreateCollectionSuccess: onCreateCollectionSuccess,
-  onCreateCollectionFailure: onCreateCollectionFailure
+  onCreateCollectionFailure: onCreateCollectionFailure,
+  onIndexCollectionsSuccess: onIndexCollectionsSuccess,
+  onIndexCollectionsFailure: onIndexCollectionsFailure
 }

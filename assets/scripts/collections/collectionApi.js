@@ -12,6 +12,15 @@ const createCollection = function (data) {
   })
 }
 
+const indexCollections = function () {
+  return $.ajax({
+    url: config.apiUrl + '/collections',
+    method: 'GET',
+    headers: { Authorization: 'Token token=' + store.user.token }
+  })
+}
+
 module.exports = {
-  createCollection: createCollection
+  createCollection: createCollection,
+  indexCollections: indexCollections
 }

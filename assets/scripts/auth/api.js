@@ -23,7 +23,6 @@ const signOut = function (token) {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
-    // is "Token token" going to throw this off??
     headers: { Authorization: 'Token token=' + store.user.token }
   })
 }

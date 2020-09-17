@@ -20,7 +20,7 @@ const onCreateCollectionFailure = function (error) {
 const onIndexCollectionsSuccess = function (response) {
   storeCollections.collections = response.collections
   console.log('Index request success! Here are your collections', response)
-  $('#show-collections').html('Here are your collections ' + JSON.stringify(storeCollections.collections))
+  $('#show-collections').html('Here are your collections ' + JSON.stringify(storeCollections.collections, null, 2))
 }
 
 const onIndexCollectionsFailure = function (error) {

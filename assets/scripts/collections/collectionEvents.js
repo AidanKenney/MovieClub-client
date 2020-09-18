@@ -48,6 +48,7 @@ const onUpdateCollection = function (event) {
 
   collectionApi.updateCollection(collectionData)
     .then(collectionUi.onUpdateCollectionSuccess)
+    // .then(onIndexCollections)
     .catch(collectionUi.onUpdateCollectionFailure)
 }
 

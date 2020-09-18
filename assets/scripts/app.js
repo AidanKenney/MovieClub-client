@@ -2,6 +2,7 @@
 
 const events = require('./auth/events')
 const collectionEvents = require('./collections/collectionEvents')
+const collectionUi = require('./collections/collectionUi')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -11,6 +12,13 @@ const collectionEvents = require('./collections/collectionEvents')
 
 $(() => {
   // your JS code goes here
+  $('#sign-in').hide()
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#create-collection').hide()
+  $('#index-collections').hide()
+  $('#delete-collection').hide()
+  $('#update-collection').hide()
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
   $('#sign-out').on('submit', events.onSignOut)
@@ -19,4 +27,5 @@ $(() => {
   $('#index-collections').on('submit', collectionEvents.onIndexCollections)
   $('#delete-collection').on('submit', collectionEvents.onDeleteCollection)
   $('#update-collection').on('submit', collectionEvents.onUpdateCollection)
+  $('#link-to-sign-in').on('click', collectionUi.onLinkToSignIn)
 })

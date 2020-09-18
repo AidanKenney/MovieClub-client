@@ -8,9 +8,9 @@ const onSignUpSuccess = function (response) {
   console.log('Sign up success! Respond is', store.user)
   // $('#msg').text('Sign Up successful! Welcome ' + store.user.email + '. Please Sign In.')
   $('#sign-up').trigger('reset')
-  // $('#sign-up').hide()
+  $('#sign-up').hide()
   // $('#pw-warning').hide()
-  // $('#sign-in').show()
+  $('#sign-in').show()
 }
 const onSignUpFailure = function (error) {
   storeAuthErrors.error = error
@@ -24,13 +24,15 @@ const onSignInSuccess = function (response) {
   console.log('Sign in success! Response is', store.user)
   // $('#msg').text('Sign in successful! Welcome ' + store.user.email)
   $('#sign-in').trigger('reset')
-  // $('#sign-up').hide()
-  // $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
   // $('#pw-warning').hide()
-  // $('#sign-out').show()
-  // $('#change-password').show()
-  // $('#new-game').show()
-  // $('#get-all-games').show()
+  $('#sign-out').show()
+  $('#change-password').show()
+  $('#create-collection').show()
+  $('#index-collections').show()
+  $('#delete-collection').show()
+  $('#update-collection').show()
 }
 
 const onSignInFailure = function (error) {
@@ -43,22 +45,20 @@ const onSignInFailure = function (error) {
 const onSignOutSuccess = function (response) {
   console.log('Sign Out successful!')
   // $('#msg').text('Sign out successful.')
-  // $('#sign-out').hide()
-  // $('#change-password').hide()
-  // $('#gameBoard').hide()
-  // $('#get-all-games').hide()
-  // $('#new-game').hide()
-  // $('#all-games').hide()
-  // $('#win-msg').hide()
-  // $('#sign-up').show()
-  // $('#pw-warning').show()
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#create-collection').hide()
+  $('#index-collections').hide()
+  $('#delete-collection').hide()
+  $('#update-collection').hide()
+  $('#sign-up').show()
+  $('#show-collections').hide()
 }
 
 const onSignOutFailure = function (error) {
   storeAuthErrors.error = error
   console.log('Error! Error is', error)
   // $('#msg').text('Sign out failed.')
-  // $('#get-all-games').hide()
 }
 
 const onChangePasswordSuccess = function (response) {

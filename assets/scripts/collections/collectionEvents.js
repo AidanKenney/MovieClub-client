@@ -19,9 +19,9 @@ const onCreateCollection = function (event) {
     .catch(collectionUi.onCreateCollectionFailure)
 }
 
-const onIndexCollections = function () {
+const onIndexCollections = function (a) {
   event.preventDefault()
-  collectionApi.indexCollections()
+  collectionApi.indexCollections(a)
   // handle successful API response
     .then(collectionUi.onIndexCollectionsSuccess)
   // handle failed API response
@@ -47,8 +47,8 @@ const onUpdateCollection = function (event) {
   const collectionData = getFormFields(form)
 
   collectionApi.updateCollection(collectionData)
+    .then(() => collectionApi.indexCollections())
     .then(collectionUi.onUpdateCollectionSuccess)
-    // .then(onIndexCollections)
     .catch(collectionUi.onUpdateCollectionFailure)
 }
 

@@ -1,7 +1,7 @@
 'use strict'
 
 const storeCollections = require('./../storeCollections')
-const collectionEvents = require('./collectionEvents')
+// const collectionEvents = require('./collectionEvents')
 // const storeAuthErrors = require('./../storeAuthErrors')
 
 const onCreateCollectionSuccess = function (response) {
@@ -42,8 +42,10 @@ const onDeleteCollectionFailure = function (error) {
 
 const onUpdateCollectionSuccess = function (response) {
   console.log('Successfully updated collection', response)
-  // $('#update-collection').trigger('reset')
+  storeCollections.collections = response.collections
+  console.log('Update succesful! Here are your collections', response)
   $('#show-collections').html('Here are your collections ' + JSON.stringify(storeCollections.collections, null, 2))
+  $('#show-collections').show()
 }
 
 const onUpdateCollectionFailure = function (error) {

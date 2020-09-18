@@ -13,6 +13,7 @@ const onCreateCollection = function (event) {
 
   // send collection data to API via AJAX request t
   collectionApi.createCollection(collectionData)
+    // .then(() => collectionApi.indexCollections())
   // handle successful API response
     .then(collectionUi.onCreateCollectionSuccess)
   // handle failed API response
@@ -37,6 +38,7 @@ const onDeleteCollection = function (event) {
   console.log(collectionId)
   // send AJAX request with id from form field
   collectionApi.deleteCollection(collectionId)
+    .then(() => collectionApi.indexCollections())
     .then(collectionUi.onDeleteCollectionSuccess)
     .catch(collectionUi.onDeleteCollectionFailure)
 }

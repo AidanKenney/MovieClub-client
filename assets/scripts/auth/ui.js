@@ -6,7 +6,7 @@ const storeAuthErrors = require('./../storeAuthErrors')
 const onSignUpSuccess = function (response) {
   store.user = response.user
   console.log('Sign up success! Respond is', store.user)
-  // $('#msg').text('Sign Up successful! Welcome ' + store.user.email + '. Please Sign In.')
+  $('#msg').text('Sign Up successful! Welcome ' + store.user.email + '. Please Sign In.')
   $('#sign-up').trigger('reset')
   $('#sign-up').hide()
   // $('#pw-warning').hide()
@@ -15,14 +15,14 @@ const onSignUpSuccess = function (response) {
 const onSignUpFailure = function (error) {
   storeAuthErrors.error = error
   console.log('Error! Error is', error)
-  // $('msg').text('Sign Up failed, please try again.')
+  $('msg').text('Sign Up failed, please try again.')
   $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = function (response) {
   store.user = response.user
   console.log('Sign in success! Response is', store.user)
-  // $('#msg').text('Sign in successful! Welcome ' + store.user.email)
+  $('#msg').text('Sign in successful! Welcome ' + store.user.email)
   $('#sign-in').trigger('reset')
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -38,13 +38,13 @@ const onSignInSuccess = function (response) {
 const onSignInFailure = function (error) {
   storeAuthErrors.error = error
   console.log('Error! Error is', error)
-  // $('#msg').text('Sign in failed, please try again.')
+  $('#msg').text('Sign in failed, please try again.')
   $('#sign-in').trigger('reset')
 }
 
 const onSignOutSuccess = function (response) {
   console.log('Sign Out successful!')
-  // $('#msg').text('Sign out successful.')
+  $('#msg').text('Sign out successful.')
   $('#sign-out').hide()
   $('#change-password').hide()
   $('#create-collection').hide()
@@ -58,21 +58,19 @@ const onSignOutSuccess = function (response) {
 const onSignOutFailure = function (error) {
   storeAuthErrors.error = error
   console.log('Error! Error is', error)
-  // $('#msg').text('Sign out failed.')
+  $('#msg').text('Sign out failed.')
 }
 
 const onChangePasswordSuccess = function (response) {
   console.log('Change PW success! Response is', response)
-  // $('#msg').text('Password changed successfully.')
+  $('#msg').text('Password changed successfully.')
   $('#change-password').trigger('reset')
-  // $('#get-all-games').hide()
 }
 const onChangePasswordFailure = function (error) {
   storeAuthErrors.error = error
   console.log('Error! Error is', error)
-  // $('#msg').text('Password not changed, try again.')
+  $('#msg').text('Password not changed, try again.')
   $('#change-password').trigger('reset')
-  // $('#get-all-games').hide()
 }
 
 const onLinkToSignIn = function () {

@@ -12,6 +12,16 @@ const createMovie = function (data) {
   })
 }
 
+const updateMovie = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/movies/' + data.movie.id,
+    method: 'PATCH',
+    headers: { Authorization: 'Token token=' + store.user.token },
+    data: data
+  })
+}
+
 module.exports = {
-  createMovie: createMovie
+  createMovie: createMovie,
+  updateMovie: updateMovie
 }

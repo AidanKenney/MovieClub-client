@@ -16,7 +16,21 @@ const onCreateMovieFailure = function (error) {
   $('#create-movie').trigger('reset')
 }
 
+const onUpdateMovieSuccess = function (response) {
+  console.log('Update Movie success!', response)
+  $('#msg').text('Update move success!')
+  $('#update-movie').trigger('reset')
+}
+
+const onUpdateMovieFailure = function (error) {
+  console.log('Update Movie failed', error)
+  $('#msg').text('Update move failed')
+  $('#update-movie').trigger('reset')
+}
+
 module.exports = {
   onCreateMovieSuccess,
-  onCreateMovieFailure
+  onCreateMovieFailure,
+  onUpdateMovieSuccess,
+  onUpdateMovieFailure
 }

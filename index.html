@@ -95,6 +95,41 @@
         </form>
       </section>
 
+      <section>
+        <form id="create-movie"  class="form">
+          <fieldset class="form-field">
+            <h3>Add Movie to Collection</h3>
+            <input id="title" name="movie[title]" type="text" placeholder="Title">
+            <input id="title" name="movie[releaseDate]" type="number" placeholder="Release Year">
+            <input id="description" name="movie[description]" type="text" placeholder="Description">
+            <input id="collectionId" name="movie[collectionId]" type="text" placeholder="Collection ID">
+            <input type="submit" value="Submit">
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <form id="update-movie"  class="form">
+          <fieldset class="form-field">
+            <h3>Update Movie</h3>
+            <input id="title" name="movie[title]" type="text" placeholder="Title">
+            <input id="title" name="movie[releaseDate]" type="number" placeholder="Release Year">
+            <input id="description" name="movie[description]" type="text" placeholder="Description">
+            <input id="id" name="movie[id]" type="text" placeholder="Movie ID">
+            <input type="submit" value="Submit">
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <form id="delete-movie"  class="form">
+          <fieldset class="form-field">
+            <input id="movie-id" name="movie[id]" type="text" placeholder="Movie ID">
+            <input type="submit" value="Delete Movie">
+          </fieldset>
+        </form>
+      </section>
+
       <pre id='show-collections'></pre>
 
     </body>

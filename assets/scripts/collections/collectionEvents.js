@@ -20,9 +20,9 @@ const onCreateCollection = function (event) {
     .catch(collectionUi.onCreateCollectionFailure)
 }
 
-const onIndexCollections = function (a) {
+const onIndexCollections = function () {
   event.preventDefault()
-  collectionApi.indexCollections(a)
+  collectionApi.indexCollections()
   // handle successful API response
     .then(collectionUi.onIndexCollectionsSuccess)
   // handle failed API response

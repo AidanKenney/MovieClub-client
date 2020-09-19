@@ -33,6 +33,9 @@ const onSignInSuccess = function (response) {
   $('#index-collections').show()
   $('#delete-collection').show()
   $('#update-collection').show()
+  $('#create-movie').show()
+  $('#update-movie').show()
+  $('#delete-movie').show()
 }
 
 const onSignInFailure = function (error) {
@@ -51,6 +54,9 @@ const onSignOutSuccess = function (response) {
   $('#index-collections').hide()
   $('#delete-collection').hide()
   $('#update-collection').hide()
+  $('#create-movie').hide()
+  $('#update-movie').hide()
+  $('#delete-movie').hide()
   $('#sign-up').show()
   $('#show-collections').hide()
 }

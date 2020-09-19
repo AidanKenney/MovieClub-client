@@ -5,9 +5,12 @@ const storeCollections = require('./../storeCollections')
 // const storeAuthErrors = require('./../storeAuthErrors')
 
 const onCreateMovieSuccess = function (response) {
+  storeCollections.collections = response.collections
   console.log('Create movie success!', response)
   $('#msg').text('Create new movie success!')
   $('#create-movie').trigger('reset')
+  $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
+  $('#show-collections').show()
 }
 
 const onCreateMovieFailure = function (error) {
@@ -17,9 +20,12 @@ const onCreateMovieFailure = function (error) {
 }
 
 const onUpdateMovieSuccess = function (response) {
+  storeCollections.collections = response.collections
   console.log('Update Movie success!', response)
   $('#msg').text('Update move success!')
   $('#update-movie').trigger('reset')
+  $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
+  $('#show-collections').show()
 }
 
 const onUpdateMovieFailure = function (error) {
@@ -29,9 +35,12 @@ const onUpdateMovieFailure = function (error) {
 }
 
 const onDeleteMovieSuccess = function (response) {
+  storeCollections.collections = response.collections
   console.log('Delete movie success!', response)
   $('#msg').text('Goodbye movie')
   $('#delete-movie').trigger('reset')
+  $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
+  $('#show-collections').show()
 }
 
 const onDeleteMovieFailure = function (error) {

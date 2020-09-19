@@ -1,6 +1,7 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const movieApi = require('./movieApi')
 const movieUi = require('./movieUi')
+const collectionApi = require('./../collections/collectionApi')
 
 const onCreateMovie = function (event) {
   event.preventDefault()
@@ -11,6 +12,7 @@ const onCreateMovie = function (event) {
   console.log(movieData)
 
   movieApi.createMovie(movieData)
+    .then(() => collectionApi.indexCollections())
     .then(movieUi.onCreateMovieSuccess)
     .catch(movieUi.onCreateMovieFailure)
 }
@@ -22,6 +24,7 @@ const onUpdateMovie = function (event) {
   console.log(movieData)
 
   movieApi.updateMovie(movieData)
+    .then(() => collectionApi.indexCollections())
     .then(movieUi.onUpdateMovieSuccess)
     .catch(movieUi.onUpdateMovieFailure)
 }
@@ -33,6 +36,7 @@ const onDeleteMovie = function (event) {
   console.log(movieData)
 
   movieApi.deleteMovie(movieData)
+    .then(() => collectionApi.indexCollections())
     .then(movieUi.onDeleteMovieSuccess)
     .catch(movieUi.onDeleteMovieFailure)
 }

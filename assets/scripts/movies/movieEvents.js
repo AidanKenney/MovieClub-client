@@ -26,7 +26,19 @@ const onUpdateMovie = function (event) {
     .catch(movieUi.onUpdateMovieFailure)
 }
 
+const onDeleteMovie = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const movieData = getFormFields(form)
+  console.log(movieData)
+
+  movieApi.deleteMovie(movieData)
+    .then(movieUi.onDeleteMovieSuccess)
+    .catch(movieUi.onDeleteMovieFailure)
+}
+
 module.exports = {
   onCreateMovie: onCreateMovie,
-  onUpdateMovie: onUpdateMovie
+  onUpdateMovie: onUpdateMovie,
+  onDeleteMovie: onDeleteMovie
 }

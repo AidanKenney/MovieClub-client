@@ -28,9 +28,23 @@ const onUpdateMovieFailure = function (error) {
   $('#update-movie').trigger('reset')
 }
 
+const onDeleteMovieSuccess = function (response) {
+  console.log('Delete movie success!', response)
+  $('#msg').text('Goodbye movie')
+  $('#delete-movie').trigger('reset')
+}
+
+const onDeleteMovieFailure = function (error) {
+  console.log('Delete movie failed', error)
+  $('#msg').text('Delete movie failed')
+  $('#delete-movie').trigger('reset')
+}
+
 module.exports = {
   onCreateMovieSuccess,
   onCreateMovieFailure,
   onUpdateMovieSuccess,
-  onUpdateMovieFailure
+  onUpdateMovieFailure,
+  onDeleteMovieSuccess,
+  onDeleteMovieFailure
 }

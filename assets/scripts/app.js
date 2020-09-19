@@ -3,6 +3,7 @@
 const events = require('./auth/events')
 const collectionEvents = require('./collections/collectionEvents')
 const collectionUi = require('./collections/collectionUi')
+const movieEvents = require('./movies/movieEvents')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -28,4 +29,7 @@ $(() => {
   $('#delete-collection').on('submit', collectionEvents.onDeleteCollection)
   $('#update-collection').on('submit', collectionEvents.onUpdateCollection)
   $('#link-to-sign-in').on('click', collectionUi.onLinkToSignIn)
+  $('#create-movie').on('submit', movieEvents.onCreateMovie)
+  $('#update-movie').on('submit', movieEvents.onUpdateMovie)
+  $('#delete-movie').on('submit', movieEvents.onDeleteMovie)
 })

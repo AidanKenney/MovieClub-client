@@ -1,6 +1,7 @@
 'use strict'
 
 const storeCollections = require('./../storeCollections')
+const collectionUi = require('./../collections/collectionUi')
 // const collectionEvents = require('./collectionEvents')
 // const storeAuthErrors = require('./../storeAuthErrors')
 
@@ -9,7 +10,10 @@ const onCreateMovieSuccess = function (response) {
   console.log('Create movie success!', response)
   $('#msg').text('Create new movie success!')
   $('#create-movie').trigger('reset')
-  $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
+  $('#show-collections').html('')
+  collectionUi.makeListFromObjects(storeCollections.collections)
+  // makeListOutOfObject(response)
+  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 
@@ -24,7 +28,11 @@ const onUpdateMovieSuccess = function (response) {
   console.log('Update Movie success!', response)
   $('#msg').text('Update move success!')
   $('#update-movie').trigger('reset')
-  $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
+  $('#show-collections').html('')
+  collectionUi.makeListFromObjects(storeCollections.collections)
+  // testing how /if console.logs appear
+  // console.log('Listen up!' + JSON.parse(JSON.stringify(storeCollections.collections)))
+  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 
@@ -39,7 +47,9 @@ const onDeleteMovieSuccess = function (response) {
   console.log('Delete movie success!', response)
   $('#msg').text('Goodbye movie')
   $('#delete-movie').trigger('reset')
-  $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
+  $('#show-collections').html('')
+  collectionUi.makeListFromObjects(storeCollections.collections)
+  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 
@@ -48,6 +58,14 @@ const onDeleteMovieFailure = function (error) {
   $('#msg').text('Delete movie failed')
   $('#delete-movie').trigger('reset')
 }
+
+// const makeListOutOfObject = function (res) {
+//   res.forEach(object => {
+//     for (const property in object) {
+//       console.log(`Make list function \n ${property}: ${object[property]}`)
+//     }
+//   })
+// }
 
 module.exports = {
   onCreateMovieSuccess,

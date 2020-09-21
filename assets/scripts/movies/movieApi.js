@@ -3,12 +3,19 @@
 const config = require('./../config')
 const store = require('./../store')
 
-const createMovie = function (data) {
+const createMovie = function (data, id) {
   return $.ajax({
     url: config.apiUrl + '/movies',
     method: 'POST',
     headers: { Authorization: 'Token token=' + store.user.token },
-    data: data
+    data: {
+      movie: {
+        title: data.movie.title,
+        releaseDate: data.movie.releaseDate,
+        description: data.movie.description,
+        collectionId: id
+      }
+    }
   })
 }
 

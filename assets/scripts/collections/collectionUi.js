@@ -26,7 +26,6 @@ const onIndexCollectionsSuccess = function (response) {
   $('#msg').text('See your collections below.')
   $('#show-collections').html('')
   makeListFromObjects(storeCollections.collections)
-  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 
@@ -42,7 +41,6 @@ const onDeleteCollectionSuccess = function (response) {
   $('#delete-collection').trigger('reset')
   $('#show-collections').html('')
   makeListFromObjects(storeCollections.collections)
-  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 
@@ -57,10 +55,9 @@ const onUpdateCollectionSuccess = function (response) {
   storeCollections.collections = response.collections
   console.log('Update succesful! Here are your collections', response)
   $('#update-collection').trigger('reset')
-  $('#msg').text('Collection updated. See updated colelctions below.')
+  $('#msg').text('Collection updated. See updated collections below.')
   $('#show-collections').html('')
   makeListFromObjects(storeCollections.collections)
-  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 
@@ -84,7 +81,8 @@ const makeListFromObjects = function (collections) {
     $('#show-collections').append(`
       <div id="${collection._id}">
       <p>${collection.title} <br> ${collection.description}</p>
-      <button class="update-collection-button">Update Collection</button>
+      <button class="create-movie-button">Add Movie</button>
+      <button class="update-collection-button">Edit Collection Info</button>
       <button class="delete-collection">Delete Collection</button>
       </div>
       `)
@@ -104,27 +102,6 @@ const makeListFromObjects = function (collections) {
     })
   })
 }
-
-// const makeListFromObjects = function (array) {
-//   for (let i = 0; i < array.length; i++) {
-//     const movieArray = array[i].movies
-//     $('#show-collections').append(`<div id="${array[i]._id}">${array[i].title}</div>`)
-//     $('div').append(`<h6>${array[i].description}</h5>`)
-//     addMovies(movieArray)
-//   }
-// }
-//     // for (let i = 0; i < movieArray.length; i++) {
-//     //   $('div').append(`<ul id="${movieArray[i]._id}">${movieArray[i].title}</ul>`)
-//     //   $('ul').append(`<li>${movieArray[i].releaseDate}</li>`)
-//     //   $('ul').append(`<li>${movieArray[i].description}</li>`)
-//
-// const addMovies = function (arrayOfMovies) {
-//   arrayOfMovies.forEach(property => {
-//     $('div').append(`<ul id="${property._id}">${property.title}</ul>`)
-//     $('ul').append(`<li>${property.releaseDate}</li>`)
-//     $('ul').append(`<li>${property.description}</li>`)
-//   })
-// }
 
 module.exports = {
   onCreateCollectionSuccess: onCreateCollectionSuccess,

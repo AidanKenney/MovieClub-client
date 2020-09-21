@@ -3,15 +3,34 @@ const movieApi = require('./movieApi')
 const movieUi = require('./movieUi')
 const collectionApi = require('./../collections/collectionApi')
 
+const onCreateMovieButton = function () {
+  event.preventDefault()
+  const parentId = $(this).parent().attr('id')
+  console.log(parentId)
+  if ($('.create-movie').length === 0) {
+    $(`#${parentId}`).prepend(`
+       <form class="create-movie"  class="form">
+          <fieldset class="form-field">
+            <h3>Add Movie</h3>
+            <input id="title" name="movie[title]" type="text" placeholder="Title">
+            <input id="releaseDate" name="movie[releaseDate]" type="number" placeholder="Release Year">
+            <input id="description" name="movie[description]" type="text" placeholder="Description">
+            <input type="submit" value="Submit">
+         </fieldset>
+      </form>
+    `)
+  }
+}
+
 const onCreateMovie = function (event) {
   event.preventDefault()
 
   const form = event.target
-
   const movieData = getFormFields(form)
   console.log(movieData)
+  const parentId = $(this).parent().attr('id')
 
-  movieApi.createMovie(movieData)
+  movieApi.createMovie(movieData, parentId)
     .then(() => collectionApi.indexCollections())
     .then(movieUi.onCreateMovieSuccess)
     .catch(movieUi.onCreateMovieFailure)
@@ -25,7 +44,7 @@ const onUpdateMovieButton = function () {
     $(`#${parentId}`).prepend(`
        <form class="update-movie"  class="form">
           <fieldset class="form-field">
-            <h3>Update Collection</h3>
+            <h3>Update Movie</h3>
             <input id="title" name="movie[title]" type="text" placeholder="Title">
             <input id="releaseDate" name="movie[releaseDate]" type="number" placeholder="Release Year">
             <input id="description" name="movie[description]" type="text" placeholder="Description">
@@ -66,5 +85,6 @@ module.exports = {
   onCreateMovie: onCreateMovie,
   onUpdateMovie: onUpdateMovie,
   onDeleteMovie: onDeleteMovie,
-  onUpdateMovieButton: onUpdateMovieButton
+  onUpdateMovieButton: onUpdateMovieButton,
+  onCreateMovieButton: onCreateMovieButton
 }

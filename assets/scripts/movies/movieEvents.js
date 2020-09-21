@@ -17,13 +17,33 @@ const onCreateMovie = function (event) {
     .catch(movieUi.onCreateMovieFailure)
 }
 
+const onUpdateMovieButton = function () {
+  event.preventDefault()
+  const parentId = $(this).parent().attr('id')
+  // console.log(parentId)
+  if ($('.update-movie').length === 0) {
+    $(`#${parentId}`).prepend(`
+       <form class="update-movie"  class="form">
+          <fieldset class="form-field">
+            <h3>Update Collection</h3>
+            <input id="title" name="movie[title]" type="text" placeholder="Title">
+            <input id="releaseDate" name="movie[releaseDate]" type="number" placeholder="Release Year">
+            <input id="description" name="movie[description]" type="text" placeholder="Description">
+            <input type="submit" value="Submit">
+         </fieldset>
+      </form>
+    `)
+  }
+}
+
 const onUpdateMovie = function (event) {
   event.preventDefault()
   const form = event.target
   const movieData = getFormFields(form)
   console.log(movieData)
+  const parentId = $(this).parent().attr('id')
 
-  movieApi.updateMovie(movieData)
+  movieApi.updateMovie(movieData, parentId)
     .then(() => collectionApi.indexCollections())
     .then(movieUi.onUpdateMovieSuccess)
     .catch(movieUi.onUpdateMovieFailure)
@@ -45,5 +65,6 @@ const onDeleteMovie = function (event) {
 module.exports = {
   onCreateMovie: onCreateMovie,
   onUpdateMovie: onUpdateMovie,
-  onDeleteMovie: onDeleteMovie
+  onDeleteMovie: onDeleteMovie,
+  onUpdateMovieButton: onUpdateMovieButton
 }

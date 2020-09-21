@@ -12,9 +12,9 @@ const createMovie = function (data) {
   })
 }
 
-const updateMovie = function (data) {
+const updateMovie = function (data, id) {
   return $.ajax({
-    url: config.apiUrl + '/movies/' + data.movie.id,
+    url: config.apiUrl + '/movies/' + id,
     method: 'PATCH',
     headers: { Authorization: 'Token token=' + store.user.token },
     data: data

@@ -28,11 +28,11 @@ const deleteCollection = function (id) {
   })
 }
 
-const updateCollection = function (data) {
+const updateCollection = function (data, id) {
   return $.ajax({
     // must access collection.id property of collectionData object -- rule from
     // getFormFields
-    url: config.apiUrl + '/collections/' + data.collection.id,
+    url: config.apiUrl + '/collections/' + id,
     method: 'PATCH',
     headers: { Authorization: 'Token token=' + store.user.token },
     data: data

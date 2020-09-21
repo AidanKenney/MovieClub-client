@@ -84,11 +84,8 @@ const makeListFromObjects = function (collections) {
     $('#show-collections').append(`
       <div id="${collection._id}">
       <p>${collection.title} <br> ${collection.description}</p>
-      <form class="delete-collection"  class="form">
-        <fieldset class="form-field">
-          <input type="submit" value="Delete Collection">
-        </fieldset>
-      </form>
+      <button class="update-collection-button">Update Collection</button>
+      <button class="delete-collection">Delete Collection</button>
       </div>
       `)
     // loop through each movie
@@ -100,13 +97,9 @@ const makeListFromObjects = function (collections) {
         <ul id="${movie._id}">${movie.title}
           <li>${movie.releaseDate}</li>
           <li>${movie.description}</li>
-          <form class="delete-movie"  class="form">
-            <fieldset class="form-field">
-              <input type="submit" value="Delete Movie">
-            </fieldset>
-          </form>
+          <button class="update-movie-button">Update Movie</button>
+          <button class="delete-movie">Delete Movie</button>
         </ul>
-
         `)
     })
   })

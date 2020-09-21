@@ -21,9 +21,9 @@ const updateMovie = function (data) {
   })
 }
 
-const deleteMovie = function (data) {
+const deleteMovie = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/movies/' + data.movie.id,
+    url: config.apiUrl + '/movies/' + id,
     method: 'DELETE',
     headers: { Authorization: 'Token token=' + store.user.token }
   })

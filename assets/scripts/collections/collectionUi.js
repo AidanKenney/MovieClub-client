@@ -9,6 +9,9 @@ const onCreateCollectionSuccess = function (response) {
   console.log('Create collections successful! Collection is', storeCollections.collection)
   $('#msg').text('Create new collection success!')
   $('#create-collection').trigger('reset')
+  $('#show-collections').html('')
+  makeListFromObjects(storeCollections.collections)
+  $('#show-collections').show()
 }
 
 const onCreateCollectionFailure = function (error) {
@@ -76,20 +79,34 @@ const makeListFromObjects = function (collections) {
   // loop through each collection
   collections.forEach(function (collection) {
     console.log('collection is ', collection)
-    // const thisCollection = collection._id
+    // append elements to show-collections section
+    // give div collection's id, add title and description on different lines
     $('#show-collections').append(`
       <div id="${collection._id}">
       <p>${collection.title} <br> ${collection.description}</p>
+      <form class="delete-collection"  class="form">
+        <fieldset class="form-field">
+          <input type="submit" value="Delete Collection">
+        </fieldset>
+      </form>
       </div>
       `)
     // loop through each movie
     collection.movies.forEach(function (movie) {
       console.log('movie is ', movie)
+      // append movie ULs with release Date and description as LIs to c
+      // collectionID div
       $(`#${collection._id}`).append(`
-        <ul id="${movie._id}">${movie.title}</ul>
+        <ul id="${movie._id}">${movie.title}
           <li>${movie.releaseDate}</li>
           <li>${movie.description}</li>
+          <form class="delete-movie"  class="form">
+            <fieldset class="form-field">
+              <input type="submit" value="Delete Movie">
+            </fieldset>
+          </form>
         </ul>
+
         `)
     })
   })
@@ -125,5 +142,6 @@ module.exports = {
   onDeleteCollectionFailure: onDeleteCollectionFailure,
   onUpdateCollectionSuccess: onUpdateCollectionSuccess,
   onUpdateCollectionFailure: onUpdateCollectionFailure,
-  onLinkToSignIn: onLinkToSignIn
+  onLinkToSignIn: onLinkToSignIn,
+  makeListFromObjects: makeListFromObjects
 }

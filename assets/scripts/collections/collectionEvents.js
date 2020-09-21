@@ -31,13 +31,14 @@ const onIndexCollections = function () {
 
 const onDeleteCollection = function (event) {
   event.preventDefault()
-  const form = event.target
+  const parentId = $(this).parent().attr('id')
+  console.log(parentId)
   // extract 'id' input from form field
   // should problem change name id to collection[id]
-  const collectionId = getFormFields(form).id
-  console.log(collectionId)
-  // send AJAX request with id from form field
-  collectionApi.deleteCollection(collectionId)
+  // const collectionId = getFormFields(form).id
+  // console.log(collectionId)
+  // // send AJAX request with id from form field
+  collectionApi.deleteCollection(parentId)
     .then(() => collectionApi.indexCollections())
     .then(collectionUi.onDeleteCollectionSuccess)
     .catch(collectionUi.onDeleteCollectionFailure)

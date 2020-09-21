@@ -31,11 +31,12 @@ const onUpdateMovie = function (event) {
 
 const onDeleteMovie = function (event) {
   event.preventDefault()
-  const form = event.target
-  const movieData = getFormFields(form)
-  console.log(movieData)
+  // extracting Id of parent element -- the Movie UL
+  const parentId = $(this).parent().attr('id')
+  // const movieData = getFormFields(form)
+  console.log(parentId)
 
-  movieApi.deleteMovie(movieData)
+  movieApi.deleteMovie(parentId)
     .then(() => collectionApi.indexCollections())
     .then(movieUi.onDeleteMovieSuccess)
     .catch(movieUi.onDeleteMovieFailure)

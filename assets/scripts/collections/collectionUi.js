@@ -76,6 +76,11 @@ const onLinkToSignIn = function () {
   $('#sign-in').show()
 }
 
+const onBackToSignUp = function () {
+  $('#sign-in').hide()
+  $('#sign-up').show()
+}
+
 const makeListFromObjects = function (collections) {
   // loop through each collection
   collections.forEach(function (collection) {
@@ -84,9 +89,11 @@ const makeListFromObjects = function (collections) {
     // give div collection's id, add title and description on different lines
     $('#show-collections').append(`
       <div id="${collection._id}" class="col-sm-4">
-      <p>${collection.title} <br> ${collection.description}</p>
-      <button class="create-movie-button col-4-sm" ">Add Movie</button>
-      <button class="update-collection-button col-4-sm">Edit Collection Info</button>
+      <p class="coll-title">${collection.title}</p>
+      <p class="coll-description"> ${collection.description}</p>
+        <div id="${collection._id}-movie-section"></div>
+      <button class="create-movie-button col-4-sm">Add Movie</button>
+      <button class="update-collection-button col-4-sm">Edit Collection</button>
       <button class="delete-collection col-4-sm">Delete Collection</button>
       </div>
       `)
@@ -95,12 +102,14 @@ const makeListFromObjects = function (collections) {
       console.log('movie is ', movie)
       // append movie ULs with release Date and description as LIs to c
       // collectionID div
-      $(`#${collection._id}`).append(`
-        <ul id="${movie._id}">${movie.title}
+      $(`#${collection._id}-movie-section`).append(`
+        <ul id="${movie._id}" class="video-look">${movie.title}
           <li>${movie.releaseDate}</li>
           <li>${movie.description}</li>
-          <button class="update-movie-button">Update Movie</button>
-          <button class="delete-movie">Delete Movie</button>
+          <div class="video"></div>
+          <div class="video"></div>
+          <button class="update-movie-button">Update</button>
+          <button class="delete-movie">Delete</button>
         </ul>
         `)
     })
@@ -117,5 +126,6 @@ module.exports = {
   onUpdateCollectionSuccess: onUpdateCollectionSuccess,
   onUpdateCollectionFailure: onUpdateCollectionFailure,
   onLinkToSignIn: onLinkToSignIn,
-  makeListFromObjects: makeListFromObjects
+  makeListFromObjects: makeListFromObjects,
+  onBackToSignUp: onBackToSignUp
 }

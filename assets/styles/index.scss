@@ -1,4 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
+// @import './node_modules/nes.css/css/nes.css';
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  background: #fce4e4
+}
 
 div {
   border: 5px solid black;
@@ -8,8 +14,146 @@ div {
 ul {
   border: 1px solid black;
   font-weight: bold;
+  color: white;
+}
+
+h1 {
+  padding: 10px;
+  text-shadow: 3px 3px white, 1px 1px black;
+  font-size: 5rem;
 }
 
 li {
   font-weight: lighter;
+  font-family: 'Press Start 2P';
+  color: white;
+  z-index: 5;
+  position: relative;
 }
+
+.form-signin {
+  margin: 0 auto;
+}
+
+.sign-up-form {
+  margin: 10px;
+  font-family: 'Press Start 2P';
+}
+
+.sign-in-form {
+  margin: 10px;
+  font-family: 'Press Start 2P';
+}
+
+.form-signup {
+  margin: 0 auto;
+}
+
+.head-of-page {
+  // justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.create {
+  display: block;
+  align-items: center;
+}
+
+#link-to-sign-in {
+  cursor: pointer;
+}
+
+#back-to-sign-up {
+  cursor: pointer;
+}
+
+.container {
+  font-family: 'Press Start 2P';
+}
+
+.video-look {
+  background-color: black;
+}
+
+.video {
+  background-color: gray;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 2.5rem;
+  z-index: 4;
+  position: relative;
+}
+
+.one {
+  background-color: #fce4e4;
+  height: 40vh;
+  width: 100vw;
+  z-index: -49;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+  position: absolute;
+}
+
+.two {
+  background: #f6a442;
+  top: 10vh;
+  bottom: 30vh;
+  height: 40vh;
+  width: 100vw;
+  z-index: -50;
+  position: absolute;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+}
+
+.three {
+  background: #f75234;
+  top: 20vh;
+  bottom: 50vh;
+  height: 40vh;
+  width: 100vw;
+  z-index: -51;
+  position: absolute;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+}
+
+.four {
+  background: #f6232b;
+  top: 30vh;
+  bottom: 60vh;
+  height: 40vh;
+  width: 100vw;
+  z-index: -52;
+  position: absolute;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+}
+
+.five {
+  background: #dd1473;
+  top: 40vh;
+  bottom: 70vh;
+  height: 40vh;
+  width: 100vw;
+  z-index: -53;
+  position: absolute;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+}
+
+.six {
+  background: #b81597;
+  top: 50vh;
+  bottom: 80vh;
+  height: 40vh;
+  width: 100vw;
+  z-index: -54;
+  position: absolute;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+}
+
+// .seven {
+//   background: #fce4e4;
+//   height: 100vh;
+//   width: 100vw;
+//   z-index: -55;
+//   position: absolute;
+// }

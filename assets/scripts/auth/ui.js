@@ -30,6 +30,7 @@ const onSignInSuccess = function (response) {
   $('.navbar').show()
   $('#sign-out').show()
   $('#change-password').show()
+  $('.hide-on-front-page').show()
   $('#create-collection').show()
   $('#index-collections').show()
   $('#delete-collection').show()

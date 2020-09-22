@@ -27,6 +27,7 @@ const onSignInSuccess = function (response) {
   $('#sign-up').hide()
   $('#sign-in').hide()
   // $('#pw-warning').hide()
+  $('.navbar').show()
   $('#sign-out').show()
   $('#change-password').show()
   $('#create-collection').show()

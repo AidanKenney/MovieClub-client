@@ -13,6 +13,7 @@ const movieEvents = require('./movies/movieEvents')
 
 $(() => {
   // your JS code goes here
+  $('.navbar').hide()
   $('#sign-in').hide()
   $('#sign-out').hide()
   $('#change-password').hide()

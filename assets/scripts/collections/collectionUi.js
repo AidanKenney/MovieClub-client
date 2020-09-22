@@ -23,7 +23,11 @@ const onCreateCollectionFailure = function (error) {
 const onIndexCollectionsSuccess = function (response) {
   storeCollections.collections = response.collections
   console.log('Index request success! Here are your collections', response)
-  $('#msg').text('See your collections below.')
+  if (storeCollections.collections.length === 0) {
+    $('#msg').text('You have no collections. Create one now!')
+  } else {
+    $('#msg').text('See your collections below.')
+  }
   $('#show-collections').html('')
   makeListFromObjects(storeCollections.collections)
   $('#show-collections').show()
@@ -79,11 +83,11 @@ const makeListFromObjects = function (collections) {
     // append elements to show-collections section
     // give div collection's id, add title and description on different lines
     $('#show-collections').append(`
-      <div id="${collection._id}">
+      <div id="${collection._id}" class="col-sm-4">
       <p>${collection.title} <br> ${collection.description}</p>
-      <button class="create-movie-button">Add Movie</button>
-      <button class="update-collection-button">Edit Collection Info</button>
-      <button class="delete-collection">Delete Collection</button>
+      <button class="create-movie-button col-4-sm" ">Add Movie</button>
+      <button class="update-collection-button col-4-sm">Edit Collection Info</button>
+      <button class="delete-collection col-4-sm">Delete Collection</button>
       </div>
       `)
     // loop through each movie

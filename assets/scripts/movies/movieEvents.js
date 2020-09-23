@@ -6,7 +6,6 @@ const collectionApi = require('./../collections/collectionApi')
 const onCreateMovieButton = function () {
   event.preventDefault()
   const parentId = $(this).parent().attr('id')
-  console.log(parentId)
   if ($('.create-movie').length === 0) {
     $(`#${parentId}`).prepend(`
        <form class="create-movie"  class="form">
@@ -27,7 +26,6 @@ const onCreateMovie = function (event) {
 
   const form = event.target
   const movieData = getFormFields(form)
-  console.log(movieData)
   const parentId = $(this).parent().attr('id')
 
   movieApi.createMovie(movieData, parentId)
@@ -39,7 +37,6 @@ const onCreateMovie = function (event) {
 const onUpdateMovieButton = function () {
   event.preventDefault()
   const parentId = $(this).parent().attr('id')
-  // console.log(parentId)
   if ($('.update-movie').length === 0) {
     $(`#${parentId}`).prepend(`
        <form class="update-movie"  class="form">
@@ -59,7 +56,6 @@ const onUpdateMovie = function (event) {
   event.preventDefault()
   const form = event.target
   const movieData = getFormFields(form)
-  console.log(movieData)
   const parentId = $(this).parent().attr('id')
 
   movieApi.updateMovie(movieData, parentId)
@@ -73,7 +69,6 @@ const onDeleteMovie = function (event) {
   // extracting Id of parent element -- the Movie UL
   const parentId = $(this).parent().attr('id')
   // const movieData = getFormFields(form)
-  console.log(parentId)
 
   movieApi.deleteMovie(parentId)
     .then(() => collectionApi.indexCollections())

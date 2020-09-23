@@ -13,7 +13,6 @@ const onSignUpSuccess = function (response) {
 }
 const onSignUpFailure = function (error) {
   storeAuthErrors.error = error
-  console.log('Error! Error is', error)
   $('msg').text('Sign Up failed, please try again.')
   $('msg').show()
   $('#sign-up').trigger('reset')

@@ -9,7 +9,6 @@ const onCreateCollection = function (event) {
   const form = event.target
   // save extracted formfield data as variable collectionData
   const collectionData = getFormFields(form)
-  console.log(collectionData)
 
   // send collection data to API via AJAX request t
   collectionApi.createCollection(collectionData)
@@ -32,11 +31,7 @@ const onIndexCollections = function () {
 const onDeleteCollection = function (event) {
   event.preventDefault()
   const parentId = $(this).parent().attr('id')
-  console.log(parentId)
-  // extract 'id' input from form field
-  // should problem change name id to collection[id]
-  // const collectionId = getFormFields(form).id
-  // console.log(collectionId)
+
   // // send AJAX request with id from form field
   collectionApi.deleteCollection(parentId)
     .then(() => collectionApi.indexCollections())
@@ -47,8 +42,6 @@ const onDeleteCollection = function (event) {
 const onUpdateCollectionButton = function () {
   event.preventDefault()
   const parentId = $(this).parent().attr('id')
-  // console.log(parentId)
-  // console.log(event.target)
 
   if ($('.update-collection').length === 0) {
     $(`#${parentId}`).prepend(`
@@ -69,7 +62,6 @@ const onUpdateCollection = function (event) {
   const form = event.target
   const collectionData = getFormFields(form)
   const parentId = $(this).parent().attr('id')
-  console.log(parentId)
 
   collectionApi.updateCollection(collectionData, parentId)
     .then(() => collectionApi.indexCollections())

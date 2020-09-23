@@ -5,7 +5,7 @@ those collections.
 
 The client was built with JavaScript, CSS/SASS, HTML5, and Bootstrap. It
 interacts with a backend I built with JavaScript, Node, Express, MongoDB, and
-Mongoose-- the repo can be found here: https://github.com/AidanKenney/MovieClub-Express-api
+Mongoose-- the GitHub repo and deployed heroku site can be found here: https://github.com/AidanKenney/MovieClub-Express-api, https://fierce-forest-42234.herokuapp.com/
 
 In building this project, I planned to finish the CRUD functionality with
 collections before I started working on the movies, because the API holds movies

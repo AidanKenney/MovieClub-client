@@ -11,8 +11,6 @@ const onCreateMovieSuccess = function (response) {
   $('#create-movie').trigger('reset')
   $('#show-collections').html('')
   collectionUi.makeListFromObjects(storeCollections.collections)
-  // makeListOutOfObject(response)
-  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 
@@ -28,9 +26,6 @@ const onUpdateMovieSuccess = function (response) {
   $('#update-movie').trigger('reset')
   $('#show-collections').html('')
   collectionUi.makeListFromObjects(storeCollections.collections)
-  // testing how /if console.logs appear
-  // console.log('Listen up!' + JSON.parse(JSON.stringify(storeCollections.collections)))
-  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 
@@ -46,7 +41,6 @@ const onDeleteMovieSuccess = function (response) {
   $('#delete-movie').trigger('reset')
   $('#show-collections').html('')
   collectionUi.makeListFromObjects(storeCollections.collections)
-  // $('#show-collections').html(JSON.stringify(storeCollections.collections, null, 2))
   $('#show-collections').show()
 }
 

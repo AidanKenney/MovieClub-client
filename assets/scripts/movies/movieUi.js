@@ -3,11 +3,10 @@
 const storeCollections = require('./../storeCollections')
 const collectionUi = require('./../collections/collectionUi')
 // const collectionEvents = require('./collectionEvents')
-// const storeAuthErrors = require('./../storeAuthErrors')
+const storeAuthErrors = require('./../storeAuthErrors')
 
 const onCreateMovieSuccess = function (response) {
   storeCollections.collections = response.collections
-  console.log('Create movie success!', response)
   $('#msg').text('Create new movie success!')
   $('#create-movie').trigger('reset')
   $('#show-collections').html('')
@@ -18,14 +17,13 @@ const onCreateMovieSuccess = function (response) {
 }
 
 const onCreateMovieFailure = function (error) {
-  console.log('Create movie failed', error)
+  storeAuthErrors.error = error
   $('#msg').text('Create new movie failed')
   $('#create-movie').trigger('reset')
 }
 
 const onUpdateMovieSuccess = function (response) {
   storeCollections.collections = response.collections
-  console.log('Update Movie success!', response)
   $('#msg').text('Update move success!')
   $('#update-movie').trigger('reset')
   $('#show-collections').html('')
@@ -37,14 +35,13 @@ const onUpdateMovieSuccess = function (response) {
 }
 
 const onUpdateMovieFailure = function (error) {
-  console.log('Update Movie failed', error)
+  storeAuthErrors.error = error
   $('#msg').text('Update move failed')
   $('#update-movie').trigger('reset')
 }
 
 const onDeleteMovieSuccess = function (response) {
   storeCollections.collections = response.collections
-  console.log('Delete movie success!', response)
   $('#msg').text('Goodbye movie')
   $('#delete-movie').trigger('reset')
   $('#show-collections').html('')
@@ -54,18 +51,10 @@ const onDeleteMovieSuccess = function (response) {
 }
 
 const onDeleteMovieFailure = function (error) {
-  console.log('Delete movie failed', error)
+  storeAuthErrors.error = error
   $('#msg').text('Delete movie failed')
   $('#delete-movie').trigger('reset')
 }
-
-// const makeListOutOfObject = function (res) {
-//   res.forEach(object => {
-//     for (const property in object) {
-//       console.log(`Make list function \n ${property}: ${object[property]}`)
-//     }
-//   })
-// }
 
 module.exports = {
   onCreateMovieSuccess,

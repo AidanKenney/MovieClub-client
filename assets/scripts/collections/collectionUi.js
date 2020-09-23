@@ -2,11 +2,10 @@
 
 const storeCollections = require('./../storeCollections')
 // const collectionEvents = require('./collectionEvents')
-// const storeAuthErrors = require('./../storeAuthErrors')
+const storeAuthErrors = require('./../storeAuthErrors')
 
 const onCreateCollectionSuccess = function (response) {
   storeCollections.collection = response.collection
-  console.log('Create collections successful! Collection is', storeCollections.collection)
   $('#msg').text('Create new collection success!')
   $('#create-collection').trigger('reset')
   $('#show-collections').html('')
@@ -15,14 +14,13 @@ const onCreateCollectionSuccess = function (response) {
 }
 
 const onCreateCollectionFailure = function (error) {
-  console.log('Error! Error is', error)
+  storeAuthErrors.error = error
   $('#msg').text('Create new collection failure.')
   $('#create-collection').trigger('reset')
 }
 
 const onIndexCollectionsSuccess = function (response) {
   storeCollections.collections = response.collections
-  console.log('Index request success! Here are your collections', response)
   if (storeCollections.collections.length === 0) {
     $('#msg').text('You have no collections. Create one now!')
   } else {
@@ -34,12 +32,11 @@ const onIndexCollectionsSuccess = function (response) {
 }
 
 const onIndexCollectionsFailure = function (error) {
-  console.log('Oh no... could not get collections', error)
+  storeAuthErrors.error = error
   $('#msg').text('Could not find your collections.')
 }
 
 const onDeleteCollectionSuccess = function (response) {
-  console.log('Collection deleted successfully', response)
   storeCollections.collections = response.collections
   $('#msg').text('Successful delete, goodbye collection.')
   $('#delete-collection').trigger('reset')
@@ -49,15 +46,13 @@ const onDeleteCollectionSuccess = function (response) {
 }
 
 const onDeleteCollectionFailure = function (error) {
-  console.log('Problem deleting collection. Error is', error)
+  storeAuthErrors.error = error
   $('#msg').text('Delete failed.')
   $('#delete-collection').trigger('reset')
 }
 
 const onUpdateCollectionSuccess = function (response) {
-  console.log('Successfully updated collection', response)
   storeCollections.collections = response.collections
-  console.log('Update succesful! Here are your collections', response)
   $('#update-collection').trigger('reset')
   $('#msg').text('Collection updated. See updated collections below.')
   $('#show-collections').html('')
@@ -66,7 +61,7 @@ const onUpdateCollectionSuccess = function (response) {
 }
 
 const onUpdateCollectionFailure = function (error) {
-  console.log('Problem updating collection', error)
+  storeAuthErrors.error = error
   $('#msg').text('Update failed.')
   $('#update-collection').trigger('reset')
 }
@@ -84,7 +79,6 @@ const onBackToSignUp = function () {
 const makeListFromObjects = function (collections) {
   // loop through each collection
   collections.forEach(function (collection) {
-    console.log('collection is ', collection)
     // append elements to show-collections section
     // give div collection's id, add title and description on different lines
     $('#show-collections').append(`
@@ -99,7 +93,6 @@ const makeListFromObjects = function (collections) {
       `)
     // loop through each movie
     collection.movies.forEach(function (movie) {
-      console.log('movie is ', movie)
       // append movie ULs with release Date and description as LIs to c
       // collectionID div
       $(`#${collection._id}-movie-section`).append(`

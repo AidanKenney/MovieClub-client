@@ -88,13 +88,13 @@ const makeListFromObjects = function (collections) {
     // append elements to show-collections section
     // give div collection's id, add title and description on different lines
     $('#show-collections').append(`
-      <div id="${collection._id}" class="col-sm-4">
-      <p class="coll-title">${collection.title}</p>
-      <p class="coll-description"> ${collection.description}</p>
-        <div id="${collection._id}-movie-section"></div>
-      <button class="create-movie-button col-4-sm">Add Movie</button>
-      <button class="update-collection-button col-4-sm">Edit Collection</button>
-      <button class="delete-collection col-4-sm">Delete Collection</button>
+      <div id="${collection._id}" class="list col-4">
+        <p class="coll-title">${collection.title}</p>
+        <p class="coll-description"> ${collection.description}</p>
+          <div id="${collection._id}-movie-section"></div>
+        <button class="create-movie-button col-4-sm">Add Movie</button>
+        <button class="update-collection-button col-4-sm">Edit Collection</button>
+        <button class="delete-collection col-4-sm">Delete Collection</button>
       </div>
       `)
     // loop through each movie
@@ -106,8 +106,6 @@ const makeListFromObjects = function (collections) {
         <ul id="${movie._id}" class="video-look">${movie.title}
           <li>${movie.releaseDate}</li>
           <li>${movie.description}</li>
-          <div class="video"></div>
-          <div class="video"></div>
           <button class="update-movie-button">Update</button>
           <button class="delete-movie">Delete</button>
         </ul>

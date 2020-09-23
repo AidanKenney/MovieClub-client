@@ -5,30 +5,33 @@
 body {
   background: #fce4e4
 }
-
-div {
-  border: 5px solid black;
-  font-weight: bolder;
-}
+//
+// div {
+//   border: 5px solid black;
+//   font-weight: bolder;
+// }
 
 ul {
-  border: 1px solid black;
+  // border: 1px solid black;
   font-weight: bold;
+  font-size: 1em;
   color: white;
 }
 
 h1 {
-  padding: 10px;
+  padding-top: 80px;
   text-shadow: 3px 3px white, 1px 1px black;
   font-size: 5rem;
 }
 
 li {
   font-weight: lighter;
+  font-size: .8em;
   font-family: 'Press Start 2P';
   color: white;
   z-index: 5;
   position: relative;
+  margin-left: 20px;
 }
 
 .form-signin {
@@ -73,18 +76,36 @@ li {
   font-family: 'Press Start 2P';
 }
 
+.navbar {
+  z-index: 10;
+}
+
 .video-look {
   background-color: black;
 }
 
-.video {
-  background-color: gray;
-  height: 5rem;
-  width: 5rem;
-  border-radius: 2.5rem;
-  z-index: 4;
-  position: relative;
+.coll-title {
+  font-size: 1em;
 }
+
+.coll-description {
+  font-size: .7em;
+  margin-left: 10px;
+}
+
+.list {
+  border: 2px solid black;
+  padding: 1px;
+}
+
+// .video {
+//   background-color: gray;
+//   height: 5rem;
+//   width: 5rem;
+//   border-radius: 2.5rem;
+//   z-index: 4;
+//   position: relative;
+// }
 
 .one {
   background-color: #fce4e4;

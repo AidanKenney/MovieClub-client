@@ -59,6 +59,7 @@ const onSignOutSuccess = function (response) {
   $('#create-movie').hide()
   $('#update-movie').hide()
   $('#delete-movie').hide()
+  $('.navbar').hide()
   $('#sign-up').show()
   $('#show-collections').hide()
 }

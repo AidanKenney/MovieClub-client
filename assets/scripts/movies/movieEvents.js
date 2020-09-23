@@ -5,8 +5,11 @@ const collectionApi = require('./../collections/collectionApi')
 
 const onCreateMovieButton = function () {
   event.preventDefault()
+  // parent is the collection -- extract parent's id for API call
   const parentId = $(this).parent().attr('id')
+  // make sure "create movie" button has not been added yet
   if ($('.create-movie').length === 0) {
+    // prepend create movie form field to top of collection div
     $(`#${parentId}`).prepend(`
        <form class="create-movie"  class="form">
           <fieldset class="form-field">

@@ -2,7 +2,6 @@
 
 const storeCollections = require('./../storeCollections')
 const collectionUi = require('./../collections/collectionUi')
-// const collectionEvents = require('./collectionEvents')
 const storeAuthErrors = require('./../storeAuthErrors')
 
 const onCreateMovieSuccess = function (response) {

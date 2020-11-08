@@ -82,7 +82,7 @@ const makeListFromObjects = function (collections) {
     // append elements to show-collections section
     // give div collection's id, add title and description on different lines
     $('#show-collections').append(`
-      <div id="${collection._id}" class="list col-4">
+      <div id="${collection._id}" class="list col-sm-4">
         <p class="coll-title">${collection.title}</p>
         <p class="coll-description"> ${collection.description}</p>
           <div id="${collection._id}-movie-section"></div>

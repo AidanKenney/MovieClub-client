@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Movie Club</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-light bg-light">
+        <!-- <a class="navbar-brand" href="#">MovieClub</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <form id="sign-out" "btn btn-outline-success my-2 my-sm-0">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Sign Out">Sign Out</button>
+          </form>
+          <form id="change-password" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" id="old-password" name="passwords[old]" type="password" placeholder="Old Password">
+            <input class="form-control mr-sm-2" id="new-password" name="passwords[new]" type="password" placeholder="New Password">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Change Password</button>
+          </form>
+        </div>
+      </nav>
+
+      <section class="one"></section>
+
+
+      <section class="container head-of-page">
+        <h1>Movie Club</h1>
+
+        <p id="msg"></p>
+      </section>
+
+        <section class="row sign-up-form">
+          <form class="form-signup col-4-sm" id="sign-up">
+              <h2 class="h3 mb-3 font-weight-normal">Please sign up</h2>
+              <label for="inputEmail" class="sr-only" >Email address</label>
+              <input type="email" id="sign-in-email" name="credentials[email]" class="form-control" placeholder="Email address" required="" autofocus="">
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" id="inputPassword" class="form-control" name="credentials[password]" placeholder="Password" required="">
+              <input type="password" id="sign-up-password-conf" class="form-control" name="credentials[password_confirmation]"  placeholder="Confirm Password">
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+              <p id="link-to-sign-in">Already have an account?</p>
+            </form>
+        </section>
+
+        <section class="row sign-in-form">
+          <form class="form-signin col-4-sm" id="sign-in">
+              <h2 class="h3 mb-3 font-weight-normal">Please sign in</h2>
+              <label for="inputEmail" class="sr-only" >Email address</label>
+              <input type="email" id="sign-in-email" name="credentials[email]" class="form-control" placeholder="Email address" required="" autofocus="">
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" id="inputPassword" class="form-control" name="credentials[password]" placeholder="Password" required="">
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+              <p id="back-to-sign-up">Back to Sign Up</p>
+            </form>
+        </section>
+
+      <section class="two"></section>
+      <section class="three"></section>
+      <section class="four"></section>
+      <section class="five"></section>
+      <section class="six"></section>
+
+      <div class="container create hide-on-front-page">
+
+      <section class="row hide-on-front-page">
+        <form class="form-create-collection col-4-sm" id="create-collection">
+            <h2 class="h3 mb-3 font-weight-normal">Create Collection</h2>
+            <label for="inputTitle" class="sr-only" >Title</label>
+            <input id="title" name="collection[title]" type="text" placeholder="Title">
+            <label for="inputDescription" class="sr-only">Description</label>
+            <input id="description" name="collection[description]" type="text" placeholder="Description">
+            <button class="col-4-sm" type="submit">Submit</button>
+          </form>
+      </section>
+    </div>
+
+<div class="container index hide-on-front-page">
+    <section class="row">
+      <form id="index-collections"  class="form col-6-sm">
+        <fieldset class="form-field">
+          <input class="view-collections" type="submit" value="View collections">
+        </fieldset>
+      </form>
+  </section>
+</div>
+
+      <div class="container hide-on-front-page">
+        <div id='show-collections' class="row"></div>
+    </div>
+    </body>
+</html>

@@ -42,7 +42,7 @@ const onUpdateMovieButton = function () {
   const parentId = $(this).parent().attr('id')
   if ($('.update-movie').length === 0) {
     $(`#${parentId}`).prepend(`
-       <form class="update-movie"  class="form">
+       <form class="update-movie form">
           <fieldset class="form-field">
             <h3>Update Movie</h3>
             <input id="title" name="movie[title]" type="text" placeholder="Title">

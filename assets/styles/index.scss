@@ -24,6 +24,10 @@ h1 {
   font-size: 5rem;
 }
 
+h3 {
+  font-size: 2vw;
+}
+
 li {
   font-weight: lighter;
   font-size: .8em;
@@ -32,6 +36,14 @@ li {
   z-index: 5;
   position: relative;
   margin-left: 20px;
+}
+
+input {
+  width: 90%;
+}
+
+.form {
+  box-sizing: border-box;
 }
 
 .form-signin {
@@ -62,6 +74,10 @@ li {
 .create {
   display: block;
   align-items: center;
+}
+
+.view-collections {
+  width: auto;
 }
 
 #link-to-sign-in {
@@ -97,15 +113,6 @@ li {
   border: 2px solid black;
   padding: 1px;
 }
-
-// .video {
-//   background-color: gray;
-//   height: 5rem;
-//   width: 5rem;
-//   border-radius: 2.5rem;
-//   z-index: 4;
-//   position: relative;
-// }
 
 .one {
   background-color: #fce4e4;
